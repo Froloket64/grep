@@ -122,7 +122,6 @@ fn ere_metacharacters() {
 fn ere_invalid_pattern_is_error() {
     let (_s, mut c) = ucmd();
     c.args(&["-E", "["])
-        .pipe_in("x\n")
         .fails_with_code(2)
         .stderr_contains("invalid pattern");
 }
@@ -180,9 +179,7 @@ fn posix_character_classes() {
         .stdout_only("42\nx9y\n");
 
     let (_s, mut c) = ucmd();
-    c.args(&["-E", "[[:notdef:]]"])
-        .pipe_in("x\n")
-        .fails_with_code(2);
+    c.args(&["-E", "[[:notdef:]]"]).fails_with_code(2);
 }
 
 #[test]
