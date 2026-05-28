@@ -1,3 +1,10 @@
+[![Crates.io](https://img.shields.io/crates/v/uu_grep.svg)](https://crates.io/crates/uu_grep)
+[![Discord](https://img.shields.io/badge/discord-join-7289DA.svg?logo=discord&longCache=true&style=flat)](https://discord.gg/wQVJbvJ)
+[![License](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/uutils/grep/blob/main/LICENSE)
+[![dependency status](https://deps.rs/repo/github/uutils/grep/status.svg)](https://deps.rs/repo/github/uutils/grep)
+
+[![CodeCov](https://codecov.io/gh/uutils/grep/branch/main/graph/badge.svg)](https://codecov.io/gh/uutils/grep)
+
 # Grep, now in Rust
 
 A Rust implementation of [GNU Grep](https://www.gnu.org/software/grep/).
