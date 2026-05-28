@@ -1,12 +1,12 @@
 [package]
 name = "uu_grep"
 description = "A Rust implementation of GNU Grep"
-repository = "https://github.com/microsoft/uutils-grep"
+repository = "https://github.com/uutils/grep"
 edition = "2024"
 rust-version = "1.88.0"
 version = "0.1.0"
 license = "MIT"
-homepage = "https://github.com/microsoft/uutils-grep"
+homepage = "https://github.com/uutils/grep"
 keywords = ["grep", "uutils", "cross-platform", "cli", "utility"]
 categories = ["command-line-utilities"]
 
