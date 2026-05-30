@@ -1096,11 +1096,18 @@ fn nonexistent_file_is_error() {
 #[test]
 fn nonexistent_file_error_has_no_os_error_suffix() {
     // GNU prints "grep: <file>: No such file or directory" with no
-    // " (os error 2)" suffix; strip_errno keeps us byte-compatible.
+    // " (os error 2)" suffix; strip_errno keeps us byte-compatible. The
+    // underlying OS message text differs on Windows, but in both cases the
+    // trailing " (os error N)" must be absent.
+    #[cfg(not(windows))]
+    let expected = "grep: does-not-exist: No such file or directory\n";
+    #[cfg(windows)]
+    let expected = "grep: does-not-exist: The system cannot find the file specified.\n";
+
     let (_s, mut c) = ucmd();
     c.args(&["x", "does-not-exist"])
         .fails_with_code(2)
-        .stderr_is("grep: does-not-exist: No such file or directory\n");
+        .stderr_is(expected);
 }
 
 #[test]
