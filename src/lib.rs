@@ -419,6 +419,12 @@ pub fn uumain(args: impl uucore::Args) -> UResult<()> {
     };
 
     let matcher = Matcher::compile(&config)?;
+
+    // grep with -m 0 should not open any file
+    if config.max_count == Some(0) {
+        return Err(ExitCode::new(1));
+    }
+
     // An empty pattern matches every line; with `-v`, GNU grep selects no lines
     // and exits as "no match" without reading any input files.
     if invert_match && patterns.iter().any(|pattern| pattern.is_empty()) {
